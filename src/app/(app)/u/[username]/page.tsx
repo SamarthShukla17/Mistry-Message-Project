@@ -96,7 +96,7 @@ export default function SendMessage() {
   };
 
   return (
-    <div className="container mx-auto my-8 p-6 bg-white rounded max-w-4xl">
+    <div className="container mx-auto my-8 p-6 dark:text-white light:text-black rounded max-w-4xl">
       <h1 className="text-4xl font-bold mb-6 text-center">
         Public Profile Link
       </h1>
@@ -136,14 +136,14 @@ export default function SendMessage() {
 
       <div className="space-y-4 my-8">
         <div className="space-y-2">
-          <p>Suggest message comming soon</p>
+          {/* <p>Suggest message comming soon</p>
           <Button
             onClick={fetchSuggestedMessages}
             className="my-4"
             disabled={isSuggestLoading}
           >
             Suggest Messages
-          </Button>
+          </Button> */}
           <p>Click on any message below to select it.</p>
         </div>
         <Card>
