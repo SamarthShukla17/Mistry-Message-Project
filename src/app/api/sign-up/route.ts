@@ -8,7 +8,7 @@ export async function POST(request: Request) {
 
   const Resend = require('resend');
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+
 
   try {
     const { username, email, password } = await request.json();
@@ -65,7 +65,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
       await newUser.save();
     }
-
+    const resend = new Resend(process.env.RESEND_API_KEY);
     // Send verification email
     const emailResponse = await sendVerificationEmail(
       email,
