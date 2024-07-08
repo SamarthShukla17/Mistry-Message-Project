@@ -6,6 +6,10 @@ import { sendVerificationEmail } from '@/helpers/sendVerificationEmail';
 export async function POST(request: Request) {
   await dbConnect();
 
+  const Resend = require('resend');
+
+const resend = new Resend(process.env.RESEND_API_KEY);
+
   try {
     const { username, email, password } = await request.json();
 
