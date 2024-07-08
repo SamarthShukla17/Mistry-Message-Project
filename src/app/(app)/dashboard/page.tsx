@@ -184,7 +184,7 @@
 
 
 'use client';
-
+import Link from 'next/link';
 import { MessageCard } from '@/components/MessageCard';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
@@ -332,6 +332,7 @@ function UserDashboard() {
             className="input input-bordered w-full p-2 mr-2"
           />
           <Button onClick={copyToClipboard}>Copy</Button>
+          {/* <Button><Link href="${baseUrl}/u/${username}"></Link></Button> */}
         </div>
       </div>
 
