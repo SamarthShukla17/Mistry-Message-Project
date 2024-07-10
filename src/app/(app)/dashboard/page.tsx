@@ -337,6 +337,7 @@ function UserDashboard() {
       </div>
 
       <div className="mb-4">
+      
         <Switch
           {...register('acceptMessages')}
           checked={acceptMessages}
@@ -363,11 +364,14 @@ function UserDashboard() {
           <RefreshCcw className="h-4 w-4" />
         )}
       </Button>
+      {/* <Link href='/users'  className='align-right mr-20'>
+            <Button className='ml-4'>Users</Button>
+      </Link> */}
       <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
         {messages.length > 0 ? (
           messages.map((message, index) => (
             <MessageCard
-              key={message._id}
+              key={String(message._id)}
               message={message}
               onMessageDelete={handleDeleteMessage}
             />
