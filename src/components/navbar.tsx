@@ -64,9 +64,6 @@ function Navbar() {
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-          {/* <Link href="/users">
-            <button className='w-10px md:w-auto mr-6 mt-1'>All Users</button>
-          </Link> */}
         </div>
       </div>
     </nav>
