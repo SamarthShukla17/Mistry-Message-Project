@@ -1,49 +1,52 @@
-'use client'
+'use client';
 
-import React from 'react'
-import Link from 'next/link'
-import { useSession, signOut } from 'next-auth/react'
-import { User } from 'next-auth'
-import { MoonIcon, SunIcon } from "@radix-ui/react-icons"
-import { useTheme } from "next-themes"
-import { Button } from "@/components/ui/button"
+import React from 'react';
+import Link from 'next/link';
+import { useSession, signOut } from 'next-auth/react';
+import { User } from 'next-auth';
+import { MoonIcon, SunIcon } from '@radix-ui/react-icons';
+import { useTheme } from 'next-themes';
+import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { useState, useEffect } from 'react'
-
+} from '@/components/ui/dropdown-menu';
+import { useState, useEffect } from 'react';
 
 function Navbar() {
-
-  const { data: session } = useSession()
-  const user: User = session?.user as User
-  const { setTheme } = useTheme()
-  const [isClient, setIsClient] = useState(false)
+  const { data: session } = useSession();
+  const user: User = session?.user as User;
+  const { setTheme } = useTheme();
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    setIsClient(true)
-  }, [])
+    setIsClient(true);
+  }, []);
 
   return (
     <nav className='p-4 md:p-6 shadow-md'>
-      <div className='conatiner mx-auto flex flex-col md:flex-row justify-between'>
-        <a className="text-3xl font-bold mb-4 md:mb-0 dark:text-white light:text-black" href="#">Mistry Message</a>
-        <div className='mr-4'>
-          {
-            session ? (
-              <>
-                <span className='mr-4 text-white'>Welcome, {user?.username} || {user?.email}</span>
-                <Button className='w-full md:w-auto' onClick={() => signOut()}>Logout</Button>
-              </>
-            ) : (
-              <Link href='/sign-in'>
-                <Button className='w-10px md:w-auto mr-6 mt-1'>Login</Button>
-              </Link>
-            )
-          }
+      <div className='container mx-auto flex flex-col md:flex-row justify-between items-center'>
+        <h1 className='text-3xl font-bold mb-4 md:mb-0 dark:text-white light:text-black'>
+          Mistry Message
+        </h1>
+        <div className='space-x-4'>
+          {session ? (
+            <>
+              <span className='text-white'>
+                Welcome, {user?.username || user?.email}
+              </span>
+              <Button onClick={() => signOut()}>Logout</Button>
+            </>
+          ) : (
+            <Link href='/sign-in' passHref>
+              <Button>Login</Button>
+            </Link>
+          )}
+          {/* <Link href='/users-page' passHref>
+                <Button>Users</Button>
+          </Link> */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="icon">
@@ -53,21 +56,15 @@ function Navbar() {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              <DropdownMenuItem onClick={() => setTheme("light")}>
-                Light
-              </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setTheme("dark")}>
-                Dark
-              </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setTheme("system")}>
-                System
-              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setTheme('light')}>Light</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setTheme('dark')}>Dark</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setTheme('system')}>System</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
       </div>
     </nav>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;
