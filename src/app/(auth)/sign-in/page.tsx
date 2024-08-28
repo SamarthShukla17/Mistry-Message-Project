@@ -54,14 +54,15 @@ function Page() {
         });
       }
     }
-
+    
     if (result?.url) {
-      router.replace('/dashboard');
+      router.push('/dashboard');
     }
+    
   };
 
   return (
-    <div className='dark:text-white light:text-black'>
+    <div className='dark:text-white light:text-black mt-20'>
     <div className="flex justify-center items-center min-h-screen dark:text-white light:text-black">
       <div className="w-full max-w-md p-8 space-y-8 dark:text-white light:text-black rounded-lg shadow-md border dark:border-white-1px-rounded">
         <div className="text-center">

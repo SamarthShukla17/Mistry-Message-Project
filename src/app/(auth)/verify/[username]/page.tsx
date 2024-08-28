@@ -53,7 +53,7 @@ export default function VerifyAccount() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen dark:text-white light:text-black">
+    <div className="flex justify-center items-center min-h-screen dark:text-white light:text-black mt-20">
       <div className="w-full max-w-md p-8 space-y-8 dark:text-white light:text-black rounded-lg shadow-md border dark:border-white-1px-rounded">
         <div className="text-center">
           <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">
